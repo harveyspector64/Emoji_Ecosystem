@@ -1,15 +1,22 @@
 // src/behaviors/movement.js
+
 export class MovementBehavior {
-    constructor(speed = 50) {
+    constructor(speed) {
         this.speed = speed;
         this.direction = Math.random() * Math.PI * 2;
+        this.changeDirectionChance = 0.02;
     }
 
     update(entity, deltaTime, gameState) {
         entity.x += Math.cos(this.direction) * this.speed * deltaTime;
         entity.y += Math.sin(this.direction) * this.speed * deltaTime;
 
-        if (Math.random() < 0.02) {
+        // Wrap around screen edges
+        entity.x = (entity.x + gameState.width) % gameState.width;
+        entity.y = (entity.y + gameState.height) % gameState.height;
+
+        // Randomly change direction
+        if (Math.random() < this.changeDirectionChance) {
             this.direction = Math.random() * Math.PI * 2;
         }
     }
