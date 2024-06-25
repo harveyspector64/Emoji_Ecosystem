@@ -2,6 +2,7 @@
 import { Game } from './game.js';
 import { Flower } from './entities/flower.js';
 import { Butterfly } from './entities/butterfly.js';
+import { Tree } from './entities/tree.js';
 import { EmojiPanel } from './ui/emoji-panel.js';
 
 class EmojiEcosystemGame extends Game {
@@ -16,6 +17,9 @@ class EmojiEcosystemGame extends Game {
         for (let i = 0; i < 5; i++) {
             this.addEntity(new Flower(Math.random() * this.canvas.width, Math.random() * this.canvas.height));
             this.addEntity(new Butterfly(Math.random() * this.canvas.width, Math.random() * this.canvas.height));
+        }
+        for (let i = 0; i < 2; i++) {
+            this.addEntity(new Tree(Math.random() * this.canvas.width, Math.random() * this.canvas.height));
         }
     }
 
@@ -41,6 +45,9 @@ class EmojiEcosystemGame extends Game {
                 break;
             case '🦋':
                 this.addEntity(new Butterfly(x, y));
+                break;
+            case '🌳':
+                this.addEntity(new Tree(x, y));
                 break;
             // Add cases for other entity types as they are implemented
         }
