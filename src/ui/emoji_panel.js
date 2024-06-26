@@ -1,12 +1,11 @@
 // src/ui/emoji-panel.js
-
 export class EmojiPanel {
     constructor(x, y, width, height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.emojis = ['🌼', '🦋', '🌳', '🐦']; // Add more as needed
+        this.emojis = ['🌼', '🦋'];
         this.emojiSize = 40;
         this.padding = 10;
     }
