@@ -1,8 +1,8 @@
 // src/main.js
-import { Game } from './game.js';
-import { Flower } from './entities/flower.js';
-import { Butterfly } from './entities/butterfly.js';
-import { EmojiPanel } from './ui/emoji-panel.js';
+import { Game } from '/Emoji_Ecosystem/src/game.js';
+import { Flower } from '/Emoji_Ecosystem/src/entities/flower.js';
+import { Butterfly } from '/Emoji_Ecosystem/src/entities/butterfly.js';
+import { EmojiPanel } from '/Emoji_Ecosystem/src/ui/emoji-panel.js';
 
 class EmojiEcosystemGame extends Game {
     constructor(canvasId) {
