@@ -2,7 +2,6 @@
 import { Game } from './game.js';
 import { Flower } from './entities/flower.js';
 import { Butterfly } from './entities/butterfly.js';
-import { Tree } from './entities/tree.js';
 import { EmojiPanel } from './ui/emoji-panel.js';
 
 class EmojiEcosystemGame extends Game {
@@ -11,6 +10,7 @@ class EmojiEcosystemGame extends Game {
         this.emojiPanel = new EmojiPanel(10, 10, 100, 200);
         this.setupInitialEntities();
         this.setupEventListeners();
+        console.log("Game initialized"); // Debug log
     }
 
     setupInitialEntities() {
@@ -18,9 +18,7 @@ class EmojiEcosystemGame extends Game {
             this.addEntity(new Flower(Math.random() * this.canvas.width, Math.random() * this.canvas.height));
             this.addEntity(new Butterfly(Math.random() * this.canvas.width, Math.random() * this.canvas.height));
         }
-        for (let i = 0; i < 2; i++) {
-            this.addEntity(new Tree(Math.random() * this.canvas.width, Math.random() * this.canvas.height));
-        }
+        console.log(`Initial entities created. Total: ${this.entities.length}`); // Debug log
     }
 
     setupEventListeners() {
@@ -46,19 +44,24 @@ class EmojiEcosystemGame extends Game {
             case '🦋':
                 this.addEntity(new Butterfly(x, y));
                 break;
-            case '🌳':
-                this.addEntity(new Tree(x, y));
-                break;
             // Add cases for other entity types as they are implemented
         }
+        console.log(`New entity added. Total: ${this.entities.length}`); // Debug log
+    }
+
+    update(deltaTime) {
+        super.update(deltaTime);
+        console.log(`Updating ${this.entities.length} entities`); // Debug log
     }
 
     render() {
         super.render();
         this.emojiPanel.render(this.ctx);
+        console.log("Render complete"); // Debug log
     }
 }
 
 // Create and start the game
 const game = new EmojiEcosystemGame('gameCanvas');
 game.start();
+console.log("Game started"); // Debug log
