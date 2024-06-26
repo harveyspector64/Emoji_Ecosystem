@@ -2,8 +2,6 @@
 import { Entity } from '../entity.js';
 
 export class Butterfly extends Entity {
-
-export class Butterfly extends Entity {
     constructor(x, y) {
         super(x, y, '🦋');
         this.energy = 100;
